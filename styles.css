@@ -40,9 +40,8 @@ body {
     background: #333;
 }
 
-/* Ensure content doesn't jump behind the fixed header */
 body {
-    padding-top: 80px; /* Adjust based on your header height */
+    padding-top: 80px;
 }
 
 /* Header and Navigation */
@@ -165,8 +164,8 @@ body {
     height: 150px;
     border-radius: 50%;
     object-fit: cover;
-    border: 5px solid #1abc9c; /* Green border */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+    border: 5px solid #1abc9c;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     position: relative;
     overflow: hidden;
@@ -174,8 +173,8 @@ body {
 
 /* Hover Effect */
 .profile-img:hover {
-    transform: scale(1.05); /* Slight zoom on hover */
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3); /* Enhanced shadow on hover */
+    transform: scale(1.05);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
 }
 
 /* Rotating Border Animation */
@@ -188,7 +187,7 @@ body {
     bottom: -5px;
     border-radius: 50%;
     border: 5px solid transparent;
-    border-top-color: #2c3e50; /* Dark blue color */
+    border-top-color: #2c3e50;
     animation: rotateBorder 2s linear infinite;
 }
 

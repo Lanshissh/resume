@@ -8,7 +8,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="styles.css">
     <style>
-        /* General Styles */
         body {
             margin: 0;
             padding: 0;
@@ -20,7 +19,6 @@
             background-attachment: fixed;
         }
 
-        /* Overlay to improve readability */
         body::after {
             content: '';
             position: fixed;
@@ -28,17 +26,15 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(255, 255, 255, 0.8); /* Semi-transparent white overlay */
-            z-index: -1; /* Places the overlay behind the content */
+            background: rgba(255, 255, 255, 0.8);
+            z-index: -1;
         }
 
-        /* Ensure content is above the overlay */
         .container {
             position: relative;
             z-index: 1;
         }
 
-        /* Additional Styles for About Page */
         .about {
             padding: 100px 0;
         }
@@ -77,7 +73,7 @@
         .about-text {
             max-width: 600px;
             text-align: left;
-            background: rgba(255, 255, 255, 0.9); /* Slightly opaque white background for text */
+            background: rgba(255, 255, 255, 0.9);
             padding: 20px;
             border-radius: 10px;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
@@ -240,6 +236,7 @@
     </style>
 </head>
 <body>
+    
     <!-- Header -->
     <header class="main-header">
         <div class="container nav-container">
@@ -249,8 +246,8 @@
                     <li><a href="index.html">Home</a></li>
                     <li><a href="about.html">About</a></li>
                     <li><a href="projects.html">Projects</a></li>
-                    <li><a href="#achievements">Achievements</a></li>
-                    <li><a href="#skills">Skills</a></li>
+                    <li><a href="#">Contact</a></li>
+                    <li><a href="#">Blog</a></li>
                 </ul>
             </nav>
             <div class="hamburger">
@@ -318,7 +315,7 @@
                         <h3>Certifications</h3>
                         <ul class="certifications-list">
                             <li><a onclick="openModal('https://example.com/certificate1.pdf')">For Programming and Developing the Felipe Sonsong Website</a></li>
-                            <li><a onclick="openModal('https://example.com/certificate2.pdf')">CCNAv7: Introduction to Networks</a></li>
+                            <li><a onclick="openModal('images/netacad.png')">CCNAv7: Introduction to Networks</a></li>
                             <li><a onclick="openModal('images/Legacy.PNG')">Legacy JavaScript Algorithms and Data Structures</a></li>
                             <li><a onclick="openModal('images/Java.PNG')">JavaScript Algorithms and Data Structures</a></li>
                             <li><a onclick="openModal('images/Responsive.PNG')">Responsive Web Design</a></li>
