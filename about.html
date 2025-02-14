@@ -8,10 +8,39 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="styles.css">
     <style>
+        /* General Styles */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Lato', sans-serif;
+            color: #333;
+            background-image: url('../images/bg.webp');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+
+        /* Overlay to improve readability */
+        body::after {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.8); /* Semi-transparent white overlay */
+            z-index: -1; /* Places the overlay behind the content */
+        }
+
+        /* Ensure content is above the overlay */
+        .container {
+            position: relative;
+            z-index: 1;
+        }
+
         /* Additional Styles for About Page */
         .about {
             padding: 100px 0;
-            background: #f9f9f9;
         }
 
         .about h2 {
@@ -48,6 +77,10 @@
         .about-text {
             max-width: 600px;
             text-align: left;
+            background: rgba(255, 255, 255, 0.9); /* Slightly opaque white background for text */
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
         }
 
         .about-text p {
@@ -118,6 +151,7 @@
             text-decoration: none;
             font-size: 16px;
             transition: color 0.3s ease;
+            cursor: pointer;
         }
 
         .certifications-list a:hover {
@@ -148,6 +182,61 @@
         .contact-info a:hover {
             color: #1abc9c;
         }
+
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        .modal-content {
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            width: 80%;
+            max-width: 800px;
+            text-align: center;
+            position: relative;
+        }
+
+        .modal-content iframe {
+            width: 100%;
+            height: 500px;
+            border: none;
+            border-radius: 5px;
+        }
+
+        .modal-content .download-btn {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background: #1abc9c;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background 0.3s ease;
+        }
+
+        .modal-content .download-btn:hover {
+            background: #16a085;
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-size: 24px;
+            cursor: pointer;
+            color: #333;
+        }
     </style>
 </head>
 <body>
@@ -177,7 +266,7 @@
         <div class="container">
             <h2>About Me</h2>
             <div class="about-content">
-                <img src="img/ava.jpg" alt="Lance Cabe" class="profile-img">
+                <img src="../images/profile.webp" alt="Lance Cabe" class="profile-img">
                 <div class="about-text">
                     <p>
                         Hello! I'm <strong>Lance Cabe</strong>, a passionate and detail-oriented professional with experience in Information Technology. I specialize in Web Development and enjoy creating innovative solutions to complex problems. My journey in IT began with a curiosity for technology, and over the years, I've honed my skills in front-end and back-end development.
@@ -228,15 +317,20 @@
                     <div class="certifications-section">
                         <h3>Certifications</h3>
                         <ul class="certifications-list">
-                            <li><a href="https://example.com/certificate1.pdf" target="_blank">Certified Web Developer</a></li>
-                            <li><a href="https://example.com/certificate2.pdf" target="_blank">React Advanced Concepts</a></li>
-                            <li><a href="https://example.com/certificate3.pdf" target="_blank">Python for Data Science</a></li>
+                            <li><a onclick="openModal('https://example.com/certificate1.pdf')">For Programming and Developing the Felipe Sonsong Website</a></li>
+                            <li><a onclick="openModal('https://example.com/certificate2.pdf')">CCNAv7: Introduction to Networks</a></li>
+                            <li><a onclick="openModal('images/Legacy.PNG')">Legacy JavaScript Algorithms and Data Structures</a></li>
+                            <li><a onclick="openModal('images/Java.PNG')">JavaScript Algorithms and Data Structures</a></li>
+                            <li><a onclick="openModal('images/Responsive.PNG')">Responsive Web Design</a></li>
+                            <li><a onclick="openModal('images/Front.PNG')">Front End Development Libraries</a></li>
+                            <li><a onclick="openModal('images/SEO.png')">SEO Certified</a></li>
+                            <li><a onclick="openModal('images/SEO II.png')">SEO II Certified</a></li>
                         </ul>
                     </div>
 
                     <!-- Contact Information -->
                     <div class="contact-info">
-                        <p><i class="fas fa-map-marker-alt"></i> 3234 N-3 Street Cutcut, Nepo Subdivision, Angeles City, Pampanga</p>
+                        <p><i class="fas fa-map-marker-alt"></i> 3234 N-3 Street, Nepo Subdivision Angeles City, Pampanga</p>
                         <p><i class="fas fa-envelope"></i> <a href="mailto:cabelance2@gmail.com">cabelance2@gmail.com</a></p>
                         <p><i class="fas fa-phone"></i> <a href="tel:09613305280">0961-330-5280</a></p>
                     </div>
@@ -262,7 +356,38 @@
         </div>
     </footer>
 
+    <!-- Modal -->
+    <div id="pdfModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal()">&times;</span>
+            <iframe id="pdfViewer" src="" frameborder="0"></iframe>
+            <a id="downloadLink" class="download-btn" href="" download>Download</a>
+        </div>
+    </div>
+
     <script>
+        function openModal(pdfUrl) {
+            const modal = document.getElementById('pdfModal');
+            const pdfViewer = document.getElementById('pdfViewer');
+            const downloadLink = document.getElementById('downloadLink');
+
+            pdfViewer.src = pdfUrl;
+            downloadLink.href = pdfUrl;
+            modal.style.display = 'flex';
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('pdfModal');
+            modal.style.display = 'none';
+        }
+
+        window.onclick = function (event) {
+            const modal = document.getElementById('pdfModal');
+            if (event.target === modal) {
+                modal.style.display = 'none';
+            }
+        };
+
         document.addEventListener('DOMContentLoaded', function () {
             const hamburger = document.querySelector('.hamburger');
             const navMenu = document.querySelector('.nav-menu');
