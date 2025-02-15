@@ -282,7 +282,7 @@ body {
 .about-text {
     max-width: 600px;
     text-align: left;
-    background: rgba(255, 255, 255, 0.9); /* Slightly opaque white background for text */
+    background: rgba(255, 255, 255, 0.9);
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
@@ -414,7 +414,7 @@ body {
 
 .modal-content img {
     max-width: 100%;
-    max-height: 80vh; /* Limit height to 80% of viewport height */
+    max-height: 80vh;
     border-radius: 5px;
 }
 
