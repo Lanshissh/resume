@@ -1,334 +1,372 @@
 <!DOCTYPE html>
 <html lang="en">
-   <head>
-      <meta charset="utf-8" />
-      <meta name="viewport" content="width=device-width, initial-scale=1">
-      <title>About Lance Cabe</title>
-      <link rel="shortcut icon" href="img/favicon.png" />
-      <link href='https://fonts.googleapis.com/css?family=Playfair+Display+SC:700' rel='stylesheet' type='text/css'>
-      <link href='https://fonts.googleapis.com/css?family=Lato:400,700' rel='stylesheet' type='text/css'>
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-      <link rel="stylesheet" href="styles.css" />
-      <style>
-         body {
-         margin: 0;
-         padding: 0;
-         font-family: 'Lato', sans-serif;
-         color: #333;
-         background-size: cover;
-         background-position: center;
-         background-attachment: fixed;
-         }
-         body::after {
-         content: '';
-         position: fixed;
-         top: 0;
-         left: 0;
-         width: 100%;
-         height: 100%;
-         background: rgba(255, 255, 255, 0.8);
-         z-index: -1;
-         }
-         .container {
-         position: relative;
-         z-index: 1;
-         }
-         .about {
-         padding: 100px 0;
-         }
-         .about h2 {
-         font-size: 36px;
-         text-align: center;
-         margin-bottom: 50px;
-         font-family: 'Playfair Display SC', serif;
-         color: #2c3e50;
-         }
-         .about-content {
-         display: flex;
-         flex-wrap: wrap;
-         justify-content: center;
-         align-items: center;
-         gap: 40px;
-         }
-         .profile-img {
-         width: 200px;
-         height: 200px;
-         border-radius: 50%;
-         object-fit: cover;
-         border: 5px solid #1abc9c;
-         box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-         transition: transform 0.3s ease, box-shadow 0.3s ease;
-         }
-         .profile-img:hover {
-         transform: scale(1.05);
-         box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
-         }
-         .about-text {
-         max-width: 600px;
-         text-align: left;
-         background: rgba(255, 255, 255, 0.9); /* Slightly opaque white background for text */
-         padding: 20px;
-         border-radius: 10px;
-         box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-         }
-         .about-text p {
-         font-size: 18px;
-         line-height: 1.8;
-         color: #555;
-         margin-bottom: 20px;
-         }
-         .about-text p strong {
-         color: #2c3e50;
-         }
-         .skills-section {
-         margin-top: 40px;
-         }
-         .skills-section h3 {
-         font-size: 24px;
-         margin-bottom: 20px;
-         color: #2c3e50;
-         }
-         .skill {
-         margin-bottom: 15px;
-         }
-         .skill-name {
-         font-size: 16px;
-         color: #555;
-         margin-bottom: 5px;
-         }
-         .skill-bar {
-         background: #e0e0e0;
-         border-radius: 5px;
-         height: 10px;
-         overflow: hidden;
-         }
-         .skill-progress {
-         background: #1abc9c;
-         height: 100%;
-         border-radius: 5px;
-         }
-         .certifications-section {
-         margin-top: 40px;
-         }
-         .certifications-section h3 {
-         font-size: 24px;
-         margin-bottom: 20px;
-         color: #2c3e50;
-         }
-         .certifications-list {
-         list-style: none;
-         padding: 0;
-         }
-         .certifications-list li {
-         margin-bottom: 10px;
-         }
-         .certifications-list a {
-         color: #1abc9c;
-         text-decoration: none;
-         font-size: 16px;
-         transition: color 0.3s ease;
-         cursor: pointer;
-         }
-         .certifications-list a:hover {
-         color: #16a085;
-         }
-         .contact-info {
-         margin-top: 30px;
-         }
-         .contact-info p {
-         font-size: 16px;
-         color: #555;
-         margin: 10px 0;
-         }
-         .contact-info i {
-         margin-right: 10px;
-         color: #1abc9c;
-         }
-         .contact-info a {
-         color: #555;
-         text-decoration: none;
-         transition: color 0.3s ease;
-         }
-         .contact-info a:hover {
-         color: #1abc9c;
-         }
-         /* Modal Styles */
-         .modal {
-         display: none;
-         position: fixed;
-         top: 0;
-         left: 0;
-         width: 100%;
-         height: 100%;
-         background: rgba(0, 0, 0, 0.8);
-         justify-content: center;
-         align-items: center;
-         z-index: 1000;
-         }
-         .modal-content {
-         background: #fff;
-         padding: 20px;
-         border-radius: 10px;
-         width: 90%;
-         max-width: 800px;
-         text-align: center;
-         position: relative;
-         }
-         .modal-content img {
-         max-width: 100%;
-         max-height: 80vh; /* Limit height to 80% of viewport height */
-         border-radius: 5px;
-         }
-         .modal-content .download-btn {
-         display: inline-block;
-         margin-top: 20px;
-         padding: 10px 20px;
-         background: #1abc9c;
-         color: #fff;
-         text-decoration: none;
-         border-radius: 5px;
-         transition: background 0.3s ease;
-         }
-         .modal-content .download-btn:hover {
-         background: #16a085;
-         }
-         .close-btn {
-         position: absolute;
-         top: 10px;
-         right: 10px;
-         font-size: 24px;
-         cursor: pointer;
-         color: #333;
-         }
-      </style>
-   </head>
-   <body>
-      <!-- Header -->
-      <header class="main-header">
-         <div class="container nav-container">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>About Lance Cabe</title>
+    <link rel="shortcut icon" href="img/favicon.png" />
+    <link href='https://fonts.googleapis.com/css?family=Playfair+Display+SC:700' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Lato:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css" />
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Lato', sans-serif;
+            color: #333;
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+        
+        body::after {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.8);
+            z-index: -1;
+        }
+        
+        .container {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .about {
+            padding: 100px 0;
+        }
+        
+        .about h2 {
+            font-size: 36px;
+            text-align: center;
+            margin-bottom: 50px;
+            font-family: 'Playfair Display SC', serif;
+            color: #2c3e50;
+        }
+        
+        .about-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            gap: 40px;
+        }
+        
+        .profile-img {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid #1abc9c;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .profile-img:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+        }
+        
+        .about-text {
+            max-width: 600px;
+            text-align: left;
+            background: rgba(255, 255, 255, 0.9);
+            /* Slightly opaque white background for text */
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .about-text p {
+            font-size: 18px;
+            line-height: 1.8;
+            color: #555;
+            margin-bottom: 20px;
+        }
+        
+        .about-text p strong {
+            color: #2c3e50;
+        }
+        
+        .skills-section {
+            margin-top: 40px;
+        }
+        
+        .skills-section h3 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: #2c3e50;
+        }
+        
+        .skill {
+            margin-bottom: 15px;
+        }
+        
+        .skill-name {
+            font-size: 16px;
+            color: #555;
+            margin-bottom: 5px;
+        }
+        
+        .skill-bar {
+            background: #e0e0e0;
+            border-radius: 5px;
+            height: 10px;
+            overflow: hidden;
+        }
+        
+        .skill-progress {
+            background: #1abc9c;
+            height: 100%;
+            border-radius: 5px;
+        }
+        
+        .certifications-section {
+            margin-top: 40px;
+        }
+        
+        .certifications-section h3 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: #2c3e50;
+        }
+        
+        .certifications-list {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .certifications-list li {
+            margin-bottom: 10px;
+        }
+        
+        .certifications-list a {
+            color: #1abc9c;
+            text-decoration: none;
+            font-size: 16px;
+            transition: color 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .certifications-list a:hover {
+            color: #16a085;
+        }
+        
+        .contact-info {
+            margin-top: 30px;
+        }
+        
+        .contact-info p {
+            font-size: 16px;
+            color: #555;
+            margin: 10px 0;
+        }
+        
+        .contact-info i {
+            margin-right: 10px;
+            color: #1abc9c;
+        }
+        
+        .contact-info a {
+            color: #555;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .contact-info a:hover {
+            color: #1abc9c;
+        }
+        
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+        
+        .modal-content {
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            width: 90%;
+            max-width: 800px;
+            text-align: center;
+            position: relative;
+        }
+        
+        .modal-content img {
+            max-width: 100%;
+            max-height: 80vh;
+            /* Limit height to 80% of viewport height */
+            border-radius: 5px;
+        }
+        
+        .modal-content .download-btn {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background: #1abc9c;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background 0.3s ease;
+        }
+        
+        .modal-content .download-btn:hover {
+            background: #16a085;
+        }
+        
+        .close-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-size: 24px;
+            cursor: pointer;
+            color: #333;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="main-header">
+        <div class="container nav-container">
             <a href="#" class="logo">LANCE</a>
             <nav class="nav-menu">
-               <ul class="nav-links">
-                  <li><a href="index.html">Home</a></li>
-                  <li><a href="about.html">About</a></li>
-                  <li><a href="projects.html">Projects</a></li>
-                  <li><a href="contact.html">Contact</a></li>
-                  <li><a href="blog.html">Blog</a></li>
-               </ul>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="projects.html">Projects</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                </ul>
             </nav>
             <div class="hamburger">
-               <span></span>
-               <span></span>
-               <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
             </div>
-         </div>
-      </header>
-      <!-- About Section -->
-      <div class="about section" id="about-page">
-         <div class="container">
+        </div>
+    </header>
+    <!-- About Section -->
+    <div class="about section" id="about-page">
+        <div class="container">
             <h2>About Me</h2>
             <div class="about-content">
-               <img src="images/profile.jpg" alt="Lance Cabe" class="profile-img">
-               <div class="about-text">
-                  <p>
-                     Hello! I'm <strong>Lance Cabe</strong>, a passionate and detail-oriented professional with experience in Information Technology. I specialize in Web Development and enjoy creating innovative solutions to complex problems. My journey in IT began with a curiosity for technology, and over the years, I've honed my skills in front-end and back-end development.
-                  </p>
-                  <p>
-                     I thrive in dynamic environments where I can apply my expertise to deliver high-quality results. Whether it's building responsive websites, optimizing user experiences, or solving technical challenges, I'm always eager to learn and grow.
-                  </p>
-                  <p>
-                     Outside of work, I enjoy exploring new technologies, contributing to open-source projects, and staying active in the tech community. I believe in continuous learning and strive to stay updated with the latest industry trends.
-                  </p>
-                  <!-- Skills Section -->
-                  <div class="skills-section">
-                     <h3>Technical Skills</h3>
-                     <div class="skill">
-                        <div class="skill-name">HTML</div>
-                        <div class="skill-bar">
-                           <div class="skill-progress" style="width: 95%;"></div>
+                <img src="images/profile.jpg" alt="Lance Cabe" class="profile-img">
+                <div class="about-text">
+                    <p>
+                        Hello! I'm <strong>Lance Cabe</strong>, a passionate and detail-oriented professional with experience in Information Technology. I specialize in Web Development and enjoy creating innovative solutions to complex problems. My journey
+                        in IT began with a curiosity for technology, and over the years, I've honed my skills in front-end and back-end development.
+                    </p>
+                    <p>
+                        I thrive in dynamic environments where I can apply my expertise to deliver high-quality results. Whether it's building responsive websites, optimizing user experiences, or solving technical challenges, I'm always eager to learn and grow.
+                    </p>
+                    <p>
+                        Outside of work, I enjoy exploring new technologies, contributing to open-source projects, and staying active in the tech community. I believe in continuous learning and strive to stay updated with the latest industry trends.
+                    </p>
+                    <!-- Skills Section -->
+                    <div class="skills-section">
+                        <h3>Technical Skills</h3>
+                        <div class="skill">
+                            <div class="skill-name">HTML</div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 95%;"></div>
+                            </div>
                         </div>
-                     </div>
-                     <div class="skill">
-                        <div class="skill-name">CSS</div>
-                        <div class="skill-bar">
-                           <div class="skill-progress" style="width: 90%;"></div>
+                        <div class="skill">
+                            <div class="skill-name">CSS</div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 90%;"></div>
+                            </div>
                         </div>
-                     </div>
-                     <div class="skill">
-                        <div class="skill-name">JavaScript</div>
-                        <div class="skill-bar">
-                           <div class="skill-progress" style="width: 70%;"></div>
+                        <div class="skill">
+                            <div class="skill-name">JavaScript</div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 70%;"></div>
+                            </div>
                         </div>
-                     </div>
-                     <div class="skill">
-                        <div class="skill-name">PHP</div>
-                        <div class="skill-bar">
-                           <div class="skill-progress" style="width: 85%;"></div>
+                        <div class="skill">
+                            <div class="skill-name">PHP</div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 85%;"></div>
+                            </div>
                         </div>
-                     </div>
-                     <div class="skill">
-                        <div class="skill-name">React</div>
-                        <div class="skill-bar">
-                           <div class="skill-progress" style="width: 40%;"></div>
+                        <div class="skill">
+                            <div class="skill-name">React</div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 40%;"></div>
+                            </div>
                         </div>
-                     </div>
-                     <div class="skill">
-                        <div class="skill-name">Python</div>
-                        <div class="skill-bar">
-                           <div class="skill-progress" style="width: 35%;"></div>
+                        <div class="skill">
+                            <div class="skill-name">Python</div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 35%;"></div>
+                            </div>
                         </div>
-                     </div>
-                  </div>
-                  <!-- Certifications Section -->
-                  <div class="certifications-section">
-                     <h3>Certifications</h3>
-                     <ul class="certifications-list">
-                        <li><a onclick="openModal('images/sonsong.jpg')">For Programming and Developing the Felipe Sonsong Website</a></li>
-                        <li><a onclick="openModal('images/netacad.png')">CCNAv7: Introduction to Networks</a></li>
-                        <li><a onclick="openModal('images/Legacy.PNG')">Legacy JavaScript Algorithms and Data Structures</a></li>
-                        <li><a onclick="openModal('images/Java.PNG')">JavaScript Algorithms and Data Structures</a></li>
-                        <li><a onclick="openModal('images/Responsive.PNG')">Responsive Web Design</a></li>
-                        <li><a onclick="openModal('images/Front.PNG')">Front End Development Libraries</a></li>
-                        <li><a onclick="openModal('images/SEO.png')">SEO Certified</a></li>
-                        <li><a onclick="openModal('images/SEO II.png')">SEO II Certified</a></li>
-                     </ul>
-                  </div>
-                  <!-- Contact Information -->
-                  <div class="contact-info">
-                     <p><i class="fas fa-map-marker-alt"></i> 3234 N-3 Street, Nepo Subdivision Angeles City, Pampanga</p>
-                     <p><i class="fas fa-envelope"></i> <a href="mailto:cabelance2@gmail.com">cabelance2@gmail.com</a></p>
-                     <p><i class="fas fa-phone"></i> <a href="tel:09613305280">0961-330-5280</a></p>
-                  </div>
-               </div>
+                    </div>
+                    <!-- Certifications Section -->
+                    <div class="certifications-section">
+                        <h3>Certifications</h3>
+                        <ul class="certifications-list">
+                            <li><a onclick="openModal('images/sonsong.jpg')">For Programming and Developing the Felipe Sonsong Website</a></li>
+                            <li><a onclick="openModal('images/netacad.png')">CCNAv7: Introduction to Networks</a></li>
+                            <li><a onclick="openModal('images/Legacy.PNG')">Legacy JavaScript Algorithms and Data Structures</a></li>
+                            <li><a onclick="openModal('images/Java.PNG')">JavaScript Algorithms and Data Structures</a></li>
+                            <li><a onclick="openModal('images/Responsive.PNG')">Responsive Web Design</a></li>
+                            <li><a onclick="openModal('images/Front.PNG')">Front End Development Libraries</a></li>
+                            <li><a onclick="openModal('images/SEO.png')">SEO Certified</a></li>
+                            <li><a onclick="openModal('images/SEO II.png')">SEO II Certified</a></li>
+                        </ul>
+                    </div>
+                    <!-- Contact Information -->
+                    <div class="contact-info">
+                        <p><i class="fas fa-map-marker-alt"></i> 3234 N-3 Street, Nepo Subdivision Angeles City, Pampanga</p>
+                        <p><i class="fas fa-envelope"></i> <a href="mailto:cabelance2@gmail.com">cabelance2@gmail.com</a></p>
+                        <p><i class="fas fa-phone"></i> <a href="tel:09613305280">0961-330-5280</a></p>
+                    </div>
+                </div>
             </div>
-         </div>
-      </div>
-      <!-- Footer -->
-      <footer>
-         <div class="container">
+        </div>
+    </div>
+    <!-- Footer -->
+    <footer>
+        <div class="container">
             <div class="units-row">
-               <div class="unit-50">
-                  <p>Handcrafted by Lance Cabe</p>
-               </div>
-               <div class="unit-50">
-                  <ul class="social list-flat right">
-                     <li><a href="mailto:cabelance2@gmail.com"><i class="fas fa-envelope"></i></a></li>
-                     <li><a href="http://github.com/Lanseyy"><i class="fab fa-github"></i></a></li>
-                  </ul>
-               </div>
+                <div class="unit-50">
+                    <p>Handcrafted by Lance Cabe</p>
+                </div>
+                <div class="unit-50">
+                    <ul class="social list-flat right">
+                        <li><a href="mailto:cabelance2@gmail.com"><i class="fas fa-envelope"></i></a></li>
+                        <li><a href="http://github.com/Lanseyy"><i class="fab fa-github"></i></a></li>
+                    </ul>
+                </div>
             </div>
-         </div>
-      </footer>
-      <!-- Modal -->
-      <div id="pdfModal" class="modal">
-         <div class="modal-content">
+        </div>
+    </footer>
+    <!-- Modal -->
+    <div id="pdfModal" class="modal">
+        <div class="modal-content">
             <span class="close-btn" onclick="closeModal()">&times;</span>
             <img id="modalImage" src="" alt="Certification Image">
             <a id="downloadLink" class="download-btn" href="" download>Download</a>
-         </div>
-      </div>
-      <script>
-         function openModal(imageUrl) {
+        </div>
+    </div>
+    <script>
+        function openModal(imageUrl) {
              const modal = document.getElementById('pdfModal');
              const modalImage = document.getElementById('modalImage');
              const downloadLink = document.getElementById('downloadLink');
@@ -349,7 +387,8 @@
                  modal.style.display = 'none';
              }
          };
-      </script>
-      <script src="scripts.js"></script>
-   </body>
+    </script>
+    <script src="scripts.js"></script>
+</body>
+
 </html>
