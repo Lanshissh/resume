@@ -10,6 +10,7 @@
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
       <link rel="stylesheet" href="styles.css" />
       <style>
+         /* Featured Projects Section */
          .featured-projects {
             padding: 80px 0;
             background: #f9f9f9;
@@ -67,6 +68,7 @@
          .project-links {
             display: flex;
             gap: 10px;
+            flex-wrap: wrap;
          }
 
          .project-links a {
@@ -82,12 +84,27 @@
          .project-links a:hover {
             background: #16a085;
          }
+
+         .view-project-btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background: #2c3e50;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background 0.3s ease;
+            margin-top: 10px;
+         }
+
+         .view-project-btn:hover {
+            background: #1a252f;
+         }
       </style>
    </head>
    <body>
       <header class="main-header">
          <div class="container nav-container">
-            <a href="index.html" class="logo">LANCE</a>
+            <a href="#" class="logo">LANCE</a>
             <nav class="nav-menu">
                <ul class="nav-links">
                   <li><a href="index.html">Home</a></li>
@@ -128,33 +145,26 @@
          </div>
       </div>
 
-      <!-- Featured Projects Section -->
+      <!-- Featured Projects -->
       <div class="featured-projects section">
          <div class="container">
             <h2>Featured Projects</h2>
             <div class="project-grid">
-               <!-- Project 1 -->
                <div class="project-card">
                   <img src="images/indu1.PNG" alt="INDU Website">
                   <h3>INDU Website</h3>
                   <p>
                      A fully functional e-commerce platform for INDU clothing, featuring product listings, shopping cart, and user authentication.
                   </p>
-                  <div class="project-links">
-                     <a href="projects.html">Live Demo</a>
-                  </div>
+                  <a href="projects.html#indu-website" class="view-project-btn">View Project</a>
                </div>
-
-               <!-- Project 2 -->
                <div class="project-card">
                   <img src="images/sonsong1.jpg" alt="Felipe Sonsong Website">
                   <h3>Felipe Sonsong Website</h3>
                   <p>
                      A responsive website for Felipe Sonsong, featuring smooth animations, a clean layout, and integration with PHP and MySQL.
                   </p>
-                  <div class="project-links">
-                     <a href="projects.html">Live Demo</a>
-                  </div>
+                  <a href="projects.html#sonsong-website" class="view-project-btn">View Project</a>
                </div>
             </div>
          </div>
@@ -170,7 +180,7 @@
                <div class="unit-50">
                   <ul class="social list-flat right">
                      <li><a href="mailto:cabelance2@gmail.com"><i class="fas fa-envelope"></i></a></li>
-                     <li><a href="http://github.com/lanshissh/sonsong"><i class="fab fa-github"></i></a></li>
+                     <li><a href="http://github.com/Lanseyy"><i class="fab fa-github"></i></a></li>
                   </ul>
                </div>
             </div>
