@@ -9,11 +9,85 @@
       <link href='https://fonts.googleapis.com/css?family=Lato:400,700' rel='stylesheet' type='text/css'>
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
       <link rel="stylesheet" href="styles.css" />
+      <style>
+         .featured-projects {
+            padding: 80px 0;
+            background: #f9f9f9;
+         }
+
+         .featured-projects h2 {
+            font-size: 36px;
+            text-align: center;
+            margin-bottom: 50px;
+            font-family: 'Playfair Display SC', serif;
+            color: #2c3e50;
+         }
+
+         .project-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            justify-content: center;
+         }
+
+         .project-card {
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            width: 100%;
+            max-width: 350px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+         }
+
+         .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+         }
+
+         .project-card img {
+            width: 100%;
+            border-radius: 10px;
+            margin-bottom: 15px;
+         }
+
+         .project-card h3 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            color: #1abc9c;
+         }
+
+         .project-card p {
+            font-size: 16px;
+            line-height: 1.6;
+            color: #555;
+            margin-bottom: 20px;
+         }
+
+         .project-links {
+            display: flex;
+            gap: 10px;
+         }
+
+         .project-links a {
+            display: inline-block;
+            padding: 10px 20px;
+            background: #1abc9c;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background 0.3s ease;
+         }
+
+         .project-links a:hover {
+            background: #16a085;
+         }
+      </style>
    </head>
    <body>
       <header class="main-header">
          <div class="container nav-container">
-            <a href="#" class="logo">LANCE</a>
+            <a href="index.html" class="logo">LANCE</a>
             <nav class="nav-menu">
                <ul class="nav-links">
                   <li><a href="index.html">Home</a></li>
@@ -30,6 +104,7 @@
             </div>
          </div>
       </header>
+
       <!-- Introduction Section -->
       <div class="intro section" id="about">
          <div class="container">
@@ -52,6 +127,40 @@
             </div>
          </div>
       </div>
+
+      <!-- Featured Projects Section -->
+      <div class="featured-projects section">
+         <div class="container">
+            <h2>Featured Projects</h2>
+            <div class="project-grid">
+               <!-- Project 1 -->
+               <div class="project-card">
+                  <img src="images/indu1.PNG" alt="INDU Website">
+                  <h3>INDU Website</h3>
+                  <p>
+                     A fully functional e-commerce platform for INDU clothing, featuring product listings, shopping cart, and user authentication.
+                  </p>
+                  <div class="project-links">
+                     <a href="projects.html">Live Demo</a>
+                  </div>
+               </div>
+
+               <!-- Project 2 -->
+               <div class="project-card">
+                  <img src="images/sonsong1.jpg" alt="Felipe Sonsong Website">
+                  <h3>Felipe Sonsong Website</h3>
+                  <p>
+                     A responsive website for Felipe Sonsong, featuring smooth animations, a clean layout, and integration with PHP and MySQL.
+                  </p>
+                  <div class="project-links">
+                     <a href="projects.html">Live Demo</a>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+
+      <!-- Footer -->
       <footer>
          <div class="container">
             <div class="units-row">
@@ -61,12 +170,13 @@
                <div class="unit-50">
                   <ul class="social list-flat right">
                      <li><a href="mailto:cabelance2@gmail.com"><i class="fas fa-envelope"></i></a></li>
-                     <li><a href="http://github.com/Lanseyy"><i class="fab fa-github"></i></a></li>
+                     <li><a href="http://github.com/lanshissh/sonsong"><i class="fab fa-github"></i></a></li>
                   </ul>
                </div>
             </div>
          </div>
       </footer>
+
       <script src="scripts.js"></script>
    </body>
 </html>
